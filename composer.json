@@ -1,0 +1,30 @@
+{
+    "name": "withcandour/statamic-anonymous-uploads",
+    "description": "Automatically anonymize files uploaded via Statamic forms.",
+    "version": "0.0.1",
+    "autoload": {
+        "psr-4": {
+            "WithCandour\\StatamicAnonymousUploads\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Candour Devs",
+            "email": "devs@withcandour.co.uk"
+        }
+    ],
+    "require": {
+        "statamic/cms": "^3.3.12"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Anonymous Uploads",
+            "description": "Automatically anonymize files uploaded via Statamic forms."
+        },
+        "laravel": {
+            "providers": [
+                "WithCandour\\StatamicAnonymousUploads\\ServiceProvider"
+            ]
+        }
+    }
+}

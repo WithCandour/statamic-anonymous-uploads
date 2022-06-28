@@ -1,0 +1,17 @@
+{
+    "name": "statamic-anonymous-uploads",
+    "private": true,
+    "scripts": {
+      "development": "mix",
+      "watch": "mix watch",
+      "build": "mix --production"
+    },
+    "author": "Candour",
+    "dependencies": {
+      "cross-env": "^7.0.3",
+      "laravel-mix": "^6.0.49",
+      "vue": "^2.6.12",
+      "vue-loader": "^15.9.8",
+      "vue-template-compiler": "^2.6.12"
+    }
+  }
