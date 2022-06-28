@@ -1,7 +1,7 @@
 {
     "name": "withcandour/statamic-anonymous-uploads",
     "description": "Automatically anonymize files uploaded via Statamic forms.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "autoload": {
         "psr-4": {
             "WithCandour\\StatamicAnonymousUploads\\": "src/"
@@ -13,9 +13,6 @@
             "email": "devs@withcandour.co.uk"
         }
     ],
-    "require": {
-        "statamic/cms": "^3.3.12"
-    },
     "extra": {
         "statamic": {
             "name": "Anonymous Uploads",
