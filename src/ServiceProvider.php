@@ -2,8 +2,12 @@
 
 namespace WithCandour\StatamicAnonymousUploads;
 
+use Illuminate\Support\Facades\Route;
+use Statamic\Exceptions\NotFoundHttpException;
+use Statamic\Facades\Form;
 use Statamic\Facades\Permission;
 use Statamic\Providers\AddonServiceProvider;
+use Statamic\Support\Str;
 use WithCandour\StatamicAnonymousUploads\Fieldtypes\AnonymousUploadsFieldtype;
 
 class ServiceProvider extends AddonServiceProvider
@@ -41,6 +45,8 @@ class ServiceProvider extends AddonServiceProvider
             ->bootViews()
             ->bootPermissions()
             ->bootTranslations();
+
+        $this->bindFormRoute();
     }
 
     /**
@@ -77,5 +83,25 @@ class ServiceProvider extends AddonServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'statamic-anonymous-uploads');
         return $this;
+    }
+
+    /**
+     * Bind the forms route to resolve the form parameter of our controller
+     * to an instance of a Statamic form if it exists.
+     */
+    protected function bindFormRoute()
+    {
+        Route::bind('anonymizedUploadForm', function ($handle, $route = null) {
+            if (!Str::startsWith($route->uri(), '!/statamic-anonymous-uploads/')) {
+                return $handle;
+            }
+
+            throw_unless(
+                $form = Form::find($handle),
+                new NotFoundHttpException("Form [$handle] not found.")
+            );
+
+            return $form;
+        });
     }
 }
