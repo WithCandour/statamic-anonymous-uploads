@@ -5,7 +5,7 @@ namespace WithCandour\StatamicAnonymousUploads\Fieldtypes;
 use Illuminate\Support\Facades\Crypt;
 use Statamic\Fieldtypes\Assets\Assets as AssetsFieldtype;
 use Statamic\Support\Arr;
-use Statamic\Facades\Url;
+use Statamic\Facades\URL;
 
 class AnonymousUploadsFieldtype extends AssetsFieldtype
 {
