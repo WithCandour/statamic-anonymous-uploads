@@ -36,7 +36,7 @@ class AnonymousUploadsFieldtype extends AssetsFieldtype
     {
         $values = collect(Arr::wrap($values))
             ->map(function($value) {
-                return Url::makeAbsolute($value);
+                return URL::makeAbsolute($value);
             });
 
         return $this->config('max_files') === 1 ? $values->first() : $values->all();
