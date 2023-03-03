@@ -5,7 +5,7 @@ namespace WithCandour\StatamicAnonymousUploads\Fieldtypes;
 use Illuminate\Support\Facades\Crypt;
 use Statamic\Fieldtypes\Assets\Assets as AssetsFieldtype;
 use Statamic\Support\Arr;
-use Statamic\Facades\Url;
+use Statamic\Facades\URL;
 
 class AnonymousUploadsFieldtype extends AssetsFieldtype
 {
@@ -36,7 +36,7 @@ class AnonymousUploadsFieldtype extends AssetsFieldtype
     {
         $values = collect(Arr::wrap($values))
             ->map(function($value) {
-                return Url::makeAbsolute($value);
+                return URL::makeAbsolute($value);
             });
 
         return $this->config('max_files') === 1 ? $values->first() : $values->all();
